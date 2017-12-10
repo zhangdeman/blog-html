@@ -31,18 +31,32 @@ var getNavList = {
 
     //设置导航栏
     setNav : function (navList) {
-        var navHtml = "<ul>\n" +
-            "      <li><a href=\"#\" id=\"web-index\">网站首页</a></li>";
+        var navHtml = "<ul id=\"nav-list\">\n" +
+            "      <li><a href=\"#\">网站首页</a></li>";
 
         var listLen = navList.length;
         for (var index = 0; index < listLen; index++) {
             var name = navList[index].name;
             var value = navList[index].value;
-            navHtml += "<li><a href=\"#\" target=\"_blank\" value=\""+value+"\" title=\""+name+"\">"+name+"</a></li>";
+            var id = "web-index-"+index;
+            navHtml += "<li><a href='#/parent_type/"+value+"'\" title=\""+name+"\">"+name+"</a></li>";
         }
         navHtml += "</ul>";
+
+        if (listLen == 0){
+            navHtml = "<ul>\n" +
+                "      <li><a href=\"#\" id=\"web-index\">网站首页</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"个人博客模板\">个人博客</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"图书推荐\">图书推荐</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"网站建设\">网站建设</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"HTML5 / CSS3\">HTML5 / CSS3</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"技术探讨\">技术探讨</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"慢生活\">慢生活</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"碎言碎语\">碎言碎语</a></li>\n" +
+                "      <li><a href=\"#\" target=\"_blank\" title=\"JS 实例代码演示\">JS实例</a></li>\n" +
+                "    </ul>";
+        }
         $("#nav").html(navHtml);
-        //alert(navHtml)
     }
 };
 
