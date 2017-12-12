@@ -1,9 +1,13 @@
 /**
  * 获取文章列表
  * @type {{}}
- * url : http://127.0.0.1:4899/article/getArticleList
+ * url : http://www.deman.club:8081/article/getArticleList
  */
 var getArticleList = {
+
+    //父级文章类型
+    parentKind : -1,
+
     //初始化
     init : function () {
         var params = {
@@ -16,7 +20,7 @@ var getArticleList = {
     getList : function (requestData) {
         $.ajax({
             type: 'GET',
-            url: 'http://127.0.0.1:4899/article/getArticleList',
+            url: 'http://www.deman.club:8081/article/getArticleList',
             data: requestData,
             dataType: "json",
             success: function (data) {
@@ -30,6 +34,8 @@ var getArticleList = {
                     var articleList = list.article_list;
                     //设置列表
                     getArticleList.setListHtml(articleList);
+                    //设置分页
+                    getArticleList.setPageHtml(totalPage, currentPage, pageSize, totalCount);
                 } else {
 
                 }
@@ -46,8 +52,12 @@ var getArticleList = {
             var currentUrl = location.href;
             var paramStr = currentUrl.split("#");
             var trueParam = paramStr[1].replace(/(^\/*)/g, "").split("/");
-            //s.replace(/(^\s*)/g, "");
-            //alert(trueParam[1]);
+            var parentKind = trueParam[1];
+            getArticleList.parentKind = parentKind;
+            var articleParam = {
+                'parent_type' : parentKind
+            };
+            getArticleList.getList(articleParam);
         });
     },
 
@@ -84,16 +94,47 @@ var getArticleList = {
     },
 
     //设置分页样式
-    setPageHtml : function () {
+    setPageHtml : function (totalPage, currentPage, pageSize, totalCount) {
+        var pageHtml = "";
+        if (currentPage > 1) {
+            pageHtml += "<li><a href=\"#/page/1\">首页</a></li>";
+            var lastPage = currentPage - 1;
+            pageHtml += "<li><a href=\"#/page/"+lastPage+"\">上一页</a></li>";
+        }
 
+        for (var index = 1; index <= totalPage; index++) {
+            var kind = "";
+            if (getArticleList.parentKind >= 0) {
+                kind = "/parent_kind/"+getArticleList.parentKind;
+            }
+            if (index == currentPage) {
+                pageHtml += "<li><a href=\"#\">"+index+"</a></li>";
+            } else {
+                pageHtml += "<li><a href=\"#"+kind+"/page/"+index+"\">"+index+"</a></li>";
+            }
+        }
+
+        if (currentPage < totalPage) {
+            pageHtml += "<li><a href=\"#/page/"+totalPage+"\">尾页</a></li>";
+            var nextPage = currentPage + 1;
+            pageHtml += "<li><a href=\"#/page/"+nextPage+"\">下一页</a></li>";
+        }
+
+        pageHtml += "<li><a href=\"#/page\">"+pageSize+"条/页</a></li>\n" +
+            "            <li><a href=\"#/page\">当前第"+currentPage+"页</a></li>\n" +
+            "            <li><a href=\"#/page\">总计 "+totalCount+" 条</a></li>";
+        $("#page-list").html(pageHtml);
     },
 
     //设置页码点击事件
     setPageClickEvent : function () {
-
+        $("#page-list").click(function () {
+            alert(getArticleList.parentKind)
+        });
     }
 };
 
 
 getArticleList.init();
 getArticleList.navClickEvent();
+getArticleList.setPageClickEvent();
