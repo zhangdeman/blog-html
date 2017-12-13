@@ -1,7 +1,7 @@
 /**
  * 获取文章列表
  * @type {{}}
- * url : http://www.deman.club:8081/article/getArticleList
+ * url : http://www.deman.club:8080/article/getArticleList
  */
 var getArticleList = {
 
@@ -20,7 +20,7 @@ var getArticleList = {
     getList : function (requestData) {
         $.ajax({
             type: 'GET',
-            url: 'http://www.deman.club:8081/article/getArticleList',
+            url: 'http://www.deman.club:8080/article/getArticleList',
             data: requestData,
             dataType: "json",
             success: function (data) {
@@ -72,7 +72,7 @@ var getArticleList = {
                 "          <!--三角形-->\n" +
                 "          <div class=\"ci\"></div>\n" +
                 "          <!--圆形-->\n" +
-                "          <h2 class=\"title\"><a href=\"/\" target=\"_blank\">"+
+                "          <h2 class=\"title\"><a href=\"http://www.deman.club/view.html#"+articleList[index].id+"\" target=\"_blank\">"+
                 articleList[index].title+
                 "</a></h2>\n" +
                 "          <ul class=\"textinfo\">\n" +

@@ -1,7 +1,7 @@
 /**
  * 获取导航栏信息
  * @type {{init: getNavList.init}}
- * http://www.deman.club:8081/article/getNavList
+ * http://www.deman.club:8080/article/getNavList
  */
 var getNavList = {
 
@@ -9,7 +9,7 @@ var getNavList = {
     init : function () {
         $.ajax({
             type: 'GET',
-            url: 'http://www.deman.club:8081/article/getNavList',
+            url: 'http://www.deman.club:8080/article/getNavList',
             data: {
 
             },
