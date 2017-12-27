@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47c6b8ef-5506-4d92-b7bf-5e9b0d3eb2e3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/js/web-js/getArticleDetail.js" afterPath="$PROJECT_DIR$/js/web-js/getArticleDetail.js" />
       <change beforePath="$PROJECT_DIR$/js/web-js/getArticleList.js" afterPath="$PROJECT_DIR$/js/web-js/getArticleList.js" />
-      <change beforePath="$PROJECT_DIR$/js/web-js/getNavList.js" afterPath="$PROJECT_DIR$/js/web-js/getNavList.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -72,8 +69,8 @@
       <file leaf-file-name="getArticleList.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/web-js/getArticleList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1034">
-              <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+            <state relative-caret-position="463">
+              <caret line="150" column="66" lean-forward="false" selection-start-line="150" selection-start-column="66" selection-end-line="150" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -108,6 +105,8 @@
       <find>ajax</find>
       <find>page</find>
       <find>deman</find>
+      <find>12</find>
+      <find>www.deman.club</find>
     </findStrings>
     <replaceStrings>
       <replace>www.deman.club:8081</replace>
@@ -125,8 +124,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/view.html" />
         <option value="$PROJECT_DIR$/js/web-js/getArticleDetail.js" />
-        <option value="$PROJECT_DIR$/js/web-js/getArticleList.js" />
         <option value="$PROJECT_DIR$/js/web-js/getNavList.js" />
+        <option value="$PROJECT_DIR$/js/web-js/getArticleList.js" />
       </list>
     </option>
   </component>
@@ -215,12 +214,12 @@
       <updated>1512806674016</updated>
       <workItem from="1512806675196" duration="19692000" />
       <workItem from="1514379216909" duration="139000" />
-      <workItem from="1514379406929" duration="3098000" />
+      <workItem from="1514379406929" duration="5500000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22929000" />
+    <option name="totallyTimeSpent" value="25331000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="1436" height="878" extended-state="0" />
@@ -230,10 +229,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -241,7 +241,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -367,8 +366,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/web-js/getArticleList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1034">
-          <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        <state relative-caret-position="463">
+          <caret line="150" column="66" lean-forward="false" selection-start-line="150" selection-start-column="66" selection-end-line="150" selection-end-column="66" />
           <folding />
         </state>
       </provider>

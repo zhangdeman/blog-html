@@ -35,8 +35,14 @@ var getArticleList = {
                     var articleList = list.article_list;
                     //设置列表
                     getArticleList.setListHtml(articleList);
+                    var parentKind = requestData.parent_type;
+                    parentKind = undefined == parentKind ? -1 : parentKind;
+
+                    var sonKind = requestData.son_type;
+                    sonKind = undefined == sonKind ? -1 : sonKind;
+
                     //设置分页
-                    getArticleList.setPageHtml(totalPage, currentPage, pageSize, totalCount);
+                    getArticleList.setPageHtml(totalPage, currentPage, pageSize, totalCount, parentKind, sonKind);
                 } else {
 
                 }
@@ -89,35 +95,31 @@ var getArticleList = {
     },
 
     //设置分页样式
-    setPageHtml : function (totalPage, currentPage, pageSize, totalCount) {
+    setPageHtml : function (totalPage, currentPage, pageSize, totalCount, parentKind, sonKind) {
         var pageHtml = "";
         if (currentPage > 1) {
-            pageHtml += "<li><a href=\"#/page/1\">首页</a></li>";
-            var lastPage = currentPage - 1;
-            pageHtml += "<li><a href=\"#/page/"+lastPage+"\">上一页</a></li>";
+            pageHtml += "<li><a href=\"#\" onclick='pageOnclick("+parentKind+","+sonKind+","+1+")'>首页</a></li>";
+            var lastPage = parseInt(currentPage) - 1;
+            pageHtml += "<li><a href=\"#\" onclick='pageOnclick("+parentKind+","+sonKind+","+lastPage+")'>上一页</a></li>";
         }
 
         for (var index = 1; index <= totalPage; index++) {
-            var kind = "";
-            if (getArticleList.parentKind >= 0) {
-                kind = "/parent_kind/"+getArticleList.parentKind;
-            }
             if (index == currentPage) {
                 pageHtml += "<li><a href=\"#\">"+index+"</a></li>";
             } else {
-                pageHtml += "<li><a href=\"#"+kind+"/page/"+index+"\">"+index+"</a></li>";
+                pageHtml += "<li><a href=\"#\" onclick='pageOnclick("+parentKind+","+sonKind+","+index+")'>"+index+"</a></li>";
             }
         }
 
         if (currentPage < totalPage) {
-            pageHtml += "<li><a href=\"#/page/"+totalPage+"\">尾页</a></li>";
-            var nextPage = currentPage + 1;
-            pageHtml += "<li><a href=\"#/page/"+nextPage+"\">下一页</a></li>";
+            pageHtml += "<li><a href=\"#\"  onclick='pageOnclick("+parentKind+ "," + sonKind + "," + totalPage + ")'>尾页</a></li>";
+            var nextPage = parseInt(currentPage) + 1;
+            pageHtml += "<li><a href=\"#\" onclick='pageOnclick("+parentKind+ "," + sonKind + "," + nextPage + ")'>下一页</a></li>";
         }
 
-        pageHtml += "<li><a href=\"#/page\">"+pageSize+"条/页</a></li>\n" +
-            "            <li><a href=\"#/page\">当前第"+currentPage+"页</a></li>\n" +
-            "            <li><a href=\"#/page\">总计 "+totalCount+" 条</a></li>";
+        pageHtml += "<li><a href=\"#\">"+pageSize+"条/页</a></li>\n" +
+            "            <li><a href=\"#\">当前第"+currentPage+"页</a></li>\n" +
+            "            <li><a href=\"#\">总计 "+totalCount+" 条</a></li>";
         $("#page-list").html(pageHtml);
     },
 
@@ -136,4 +138,18 @@ getArticleList.setPageClickEvent();
 function articleList(parentKindId)
 {
     getArticleList.navClickEvent(parentKindId);
+}
+
+function pageOnclick(parentKindId, sonKindId, current_page) {
+    var articleParam = {
+        'parent_type' : parentKindId,
+        'son_type'  : sonKindId,
+        'current_page' : current_page
+    };
+
+    articleParam.parent_type = parentKindId >= 0 ? parentKindId : undefined;
+    articleParam.son_type = sonKindId >= 0 ? sonKindId : undefined;
+    articleParam.current_page = current_page >= 1 ? current_page : 1;
+    console.log(articleParam);
+    getArticleList.getList(articleParam);
 }
