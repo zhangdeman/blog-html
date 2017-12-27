@@ -13,6 +13,7 @@ var getArticleList = {
         var params = {
 
         };
+
         this.getList(params)
     },
 
@@ -47,18 +48,12 @@ var getArticleList = {
     },
 
     //导航栏点击事件
-    navClickEvent : function () {
-        $("#nav").click(function () {
-            var currentUrl = location.href;
-            var paramStr = currentUrl.split("#");
-            var trueParam = paramStr[1].replace(/(^\/*)/g, "").split("/");
-            var parentKind = trueParam[1];
-            getArticleList.parentKind = parentKind;
-            var articleParam = {
-                'parent_type' : parentKind
-            };
-            getArticleList.getList(articleParam);
-        });
+    navClickEvent : function (parentKindId) {
+        getArticleList.parentKind = parentKindId;
+        var articleParam = {
+            'parent_type' : parentKindId
+        };
+        getArticleList.getList(articleParam);
     },
 
     //设置列表样式
@@ -72,7 +67,7 @@ var getArticleList = {
                 "          <!--三角形-->\n" +
                 "          <div class=\"ci\"></div>\n" +
                 "          <!--圆形-->\n" +
-                "          <h2 class=\"title\"><a href=\"http://www.deman.club/view.html#"+articleList[index].id+"\" target=\"_blank\">"+
+                "          <h2 class=\"title\"><a href=\"http://www.deman.club:9009/view.html#"+articleList[index].id+"\" target=\"_blank\">"+
                 articleList[index].title+
                 "</a></h2>\n" +
                 "          <ul class=\"textinfo\">\n" +
@@ -136,5 +131,9 @@ var getArticleList = {
 
 
 getArticleList.init();
-getArticleList.navClickEvent();
+
 getArticleList.setPageClickEvent();
+function articleList(parentKindId)
+{
+    getArticleList.navClickEvent(parentKindId);
+}

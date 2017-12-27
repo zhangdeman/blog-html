@@ -9,7 +9,7 @@ var getNavList = {
     init : function () {
         $.ajax({
             type: 'GET',
-            url: 'http://www.deman.club:8080/article/getNavList',
+            url: 'http://127.0.0.1:8080/article/getNavList',
             data: {
 
             },
@@ -36,10 +36,10 @@ var getNavList = {
 
         var listLen = navList.length;
         for (var index = 0; index < listLen; index++) {
-            var name = navList[index].name;
-            var value = navList[index].value;
+            var name = navList[index].title;
+            var value = navList[index].id;
             var id = "web-index-"+index;
-            navHtml += "<li><a href='#' title=\""+name+"\" onclick='articleList("+value+")'>"+name+"</a></li>";
+            navHtml += "<li><a title=\""+name+"\" onclick='articleList("+value+")'>"+name+"</a></li>";
         }
         navHtml += "</ul>";
 
