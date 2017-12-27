@@ -9,7 +9,7 @@ var getNavList = {
     init : function () {
         $.ajax({
             type: 'GET',
-            url: 'http://127.0.0.1:8080/article/getNavList',
+            url: 'http://www.deman.club:8080/article/getNavList',
             data: {
 
             },

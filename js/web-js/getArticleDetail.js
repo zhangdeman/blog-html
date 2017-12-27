@@ -1,5 +1,5 @@
 var articleDetail = {
-    requestUrl : "http://127.0.0.1:8080/article/getArticleDetail",
+    requestUrl : "http://www.deman.club:8080/article/getArticleDetail",
     init : function () {
         var currentUrl = location.href;
         var paramStr = currentUrl.split("#");
