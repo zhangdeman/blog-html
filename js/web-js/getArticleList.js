@@ -73,7 +73,7 @@ var getArticleList = {
                 "          <!--三角形-->\n" +
                 "          <div class=\"ci\"></div>\n" +
                 "          <!--圆形-->\n" +
-                "          <h2 class=\"title\"><a href=\"http://www.deman.club:9009/view.html#"+articleList[index].id+"\" target=\"_blank\">"+
+                "          <h2 class=\"title\"><a href=\"http://www.deman.club/view.html#"+articleList[index].id+"\" target=\"_blank\">"+
                 articleList[index].title+
                 "</a></h2>\n" +
                 "          <ul class=\"textinfo\">\n" +
