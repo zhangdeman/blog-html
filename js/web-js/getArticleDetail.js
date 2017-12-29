@@ -34,3 +34,5 @@ var articleDetail = {
         });
     }
 };
+
+articleDetail.init();
