@@ -18,12 +18,16 @@ var articleDetail = {
                 var article = data.data;
                 if (errorCode == 0) {
                     var title = article.title;
-                    var author = article.admin_id;
+                    var author = article.author_name;
                     var createTime = article.create_time;
                     var content = article.html_content;
+                    var readCount = article.read_count;
                     $("#article-title").html(title);
                     $("#article-content").html(content);
-                    $("#article-create-time").html("create_time:" + createTime);
+                    var underTitleHtml = "<span>发布时间："+createTime+"</span>"
+                    +"<span>作者："+author+"</span>"
+                    +"<span>阅读：("+readCount+")</span>";
+                    $("#article-extra").html(underTitleHtml);
                 } else {
 
                 }
