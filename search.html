@@ -1,78 +1,296 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inspiration for Search UI Effects | Demo 2| Codrops</title>
-    <meta name="description" content="Some inspiration for search UI effects" />
-    <meta name="keywords" content="web design, inspiration, search, ui, effect, javascript, animation" />
-    <meta name="author" content="Codrops" />
-    <link rel="shortcut icon" href="favicon.ico">
-    <link href="/css/search/font.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/search/demo.css" />
-    <link rel="stylesheet" type="text/css" href="/css/search/style2.css" />
-    <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]--><script>document.documentElement.className = 'js';</script>
+
+    <style type="text/css">
+        *{margin:0;padding:0;list-style-type:none;}
+        a,img{border:0;}
+        body{font:12px "宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}
+        a{color:#2d374b;text-decoration:none}
+        a:hover{color:#cd0200;text-decoration:underline}
+
+
+        /* searchTxt */
+        .searchBtn button,.searchTxt .searchMenu .searchSelected{background-image:url(/images/searchbg.png);background-repeat:no-repeat;}
+
+        .searchTxt{float:left;width:399px;height:30px;border:2px solid #d3d3d3;border-right:0;position:relative;z-index:20;background:#fff;}
+        .searchTxt .radius{width:1px;height:1px;overflow:hidden;background:#f4f4f4;position:absolute;top:-2px;left:-2px;}
+        .searchTxtHover{float:left;width:399px;height:30px;border:2px solid #3297d8;border-right:0;position:relative;z-index:20;background:#fff;}
+        .searchTxtHover .radius{width:1px;height:1px;overflow:hidden;background:#cce5f5;position:absolute;top:-2px;left:-2px;}
+
+        .searchTxt .searchMenu{float:left;}
+        .searchTxt .searchMenu .searchSelected{color:#a8a8a8;cursor:pointer;font-size:14px;font-weight:bold;height:30px;line-height:30px;padding:0 10px;width:48px;background-position:0px -54px;}
+        .searchTxt .searchMenu .searchOpen{background-position:0px -104px;}
+
+        .searchTxt .searchMenu .searchTab{display:none; position:absolute;top:30px;left:-2px;width:58px;border:2px solid #3297d8;border-top:0;background:#fff;height:258px;z-index:20;}
+        .searchTxt .searchMenu .searchTab li{width:58px;height:28px;line-height:28px;color:#a8a8a8;font-size:14px;font-weight:bold;text-indent:10px;cursor:pointer;}
+        .searchTxt .searchMenu .searchTab li.selected{background:#edf3fc;color:#6994c1;}
+
+        .searchTxt input{float:left;border:0;background:#fff;color:#333;font:14px/22px '宋体',verdana,tahoma,arial,'SimSun',sans-serif;width:221px;height:22px;margin:0;outline:medium none;padding:4px;}
+        .searchTxt .sosoLogo{float:right;margin:8px 6px 0 0;display:inline;}
+        .searchBtn{float:left;}
+        .searchBtn button{background-position:0px 0px;border:0;color:#fff;cursor:pointer;float:left;font-size:16px;height:34px;text-indent:-9999px;width:86px;}
+    </style>
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $("#searchSelected").click(function(){
+                $("#searchTab").show();
+                $(this).addClass("searchOpen");
+            });
+
+            $("#searchTab li").hover(function(){
+                $(this).addClass("selected");
+            },function(){
+                $(this).removeClass("selected");
+            });
+
+            $("#searchTab li").click(function(){
+                $("#searchSelected").html($(this).html());
+                $("#searchTab").hide();
+                $("#searchSelected").removeClass("searchOpen");
+            });
+
+        });
+    </script>
+    <meta charset="utf-8">
+    <title>【张德满】个人博客</title>
+    <meta name="keywords" content="张德满,博客,个人网站,PHP,css3,html5" />
+    <meta name="description" content="张德满的个人博客" />
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
+    <!-- 返回顶部调用 begin -->
+    <link href="css/lrtk.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <!-- 返回顶部调用 end-->
+    <!--[if lt IE 9]>
+    <script src="js/modernizr.js"></script>
+    <![endif]-->
+
+    <!-- 基础js -->
+    <script src="js/web-js/base.js"></script>
+
+    <!--导航栏js-->
+    <script src="js/web-js/getNavList.js"></script>
 </head>
-<body class="demo-2">
-<svg class="hidden">
-    <defs>
-        <symbol id="icon-arrow" viewBox="0 0 24 24">
-            <title>arrow</title>
-            <polygon points="6.3,12.8 20.9,12.8 20.9,11.2 6.3,11.2 10.2,7.2 9,6 3.1,12 9,18 10.2,16.8 "/>
-        </symbol>
-        <symbol id="icon-drop" viewBox="0 0 24 24">
-            <title>drop</title>
-            <path d="M12,21c-3.6,0-6.6-3-6.6-6.6C5.4,11,10.8,4,11.4,3.2C11.6,3.1,11.8,3,12,3s0.4,0.1,0.6,0.3c0.6,0.8,6.1,7.8,6.1,11.2C18.6,18.1,15.6,21,12,21zM12,4.8c-1.8,2.4-5.2,7.4-5.2,9.6c0,2.9,2.3,5.2,5.2,5.2s5.2-2.3,5.2-5.2C17.2,12.2,13.8,7.3,12,4.8z"/><path d="M12,18.2c-0.4,0-0.7-0.3-0.7-0.7s0.3-0.7,0.7-0.7c1.3,0,2.4-1.1,2.4-2.4c0-0.4,0.3-0.7,0.7-0.7c0.4,0,0.7,0.3,0.7,0.7C15.8,16.5,14.1,18.2,12,18.2z"/>
-        </symbol>
-        <symbol id="icon-search" viewBox="0 0 24 24">
-            <title>search</title>
-            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-        </symbol>
-        <symbol id="icon-cross" viewBox="0 0 24 24">
-            <title>cross</title>
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-        </symbol>
-    </defs>
-</svg>
-<main class="main-wrap">
-    <div class="search">
-        <button id="btn-search-close" class="btn btn--search-close" aria-label="Close search form"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></button>
-        <form class="search__form" action="">
-            <input id="search-input" class="search__input" name="search" type="search" placeholder="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-            <button class="btn btn--search"><svg class="icon icon--search"><use xlink:href="#icon-search"></use></svg></button>
-        </form>
-        <div class="search__suggestion">
-            <h3>输入关键词搜索</h3>
-            <p>#类别 #关键字</p>
+<body>
+<header>
+    <nav id="nav">
+
+    </nav>
+    <script src="js/silder.js"></script><!--获取当前页导航 高亮显示标题-->
+
+</header>
+<!--header end-->
+<!--文章列表-->
+<script src="js/web-js/getArticleList.js"></script>
+<div id="mainbody">
+    <div class="blogs">
+        <ul>
+    <form method="get" name="" action="http://www.xwcms.net" target="_blank" style="width:487px;height:34px;margin:40px auto 0 auto;">
+        <div id="searchTxt" class="searchTxt" onMouseOver="this.className='searchTxt searchTxtHover';" onMouseOut="this.className='searchTxt';">
+            <div class="radius" style="top:-2px;"></div>
+            <div class="radius" style="top:31px;"></div>
+
+            <div class="searchMenu">
+
+                <div class="searchSelected" id="searchSelected">全部</div>
+
+                <div style="display:none;" class="searchTab" id="searchTab">
+                    <div class="radius" style="top:259px;"></div>
+                    <div class="radius" style="top:259px;left:59px;"></div>
+                    <ul>
+                        <li class="">全部</li>
+                        <li>技术</li>
+                        <li>文学</li>
+                        <li>随笔</li>
+                        <li>地图</li>
+                        <li>问问</li>
+                        <li>百科</li>
+                        <li>新闻</li>
+                        <li>购物</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <input name="w" type="text" />
+
+            <a href="http://www.sogou.com/" target="_blank"></a>
+
         </div>
-    </div><!-- /search -->
-    <header class="codrops-header">
-        <div class="codrops-links">
-            <a class="codrops-icon codrops-icon--prev" href="https://tympanus.net/Tutorials/LittleFragments/" title="Previous Demo"><svg class="icon icon--arrow"><use xlink:href="#icon-arrow"></use></svg></a>
-            <a class="codrops-icon codrops-icon--drop" href="https://tympanus.net/codrops/?p=29878" title="Back to the article"><svg class="icon icon--drop"><use xlink:href="#icon-drop"></use></svg></a>
+
+        <div class="searchBtn">
+            <button id="searchBtn" type="submit">站内搜索</button>
         </div>
-        <h1 class="codrops-header__title">Inspiration for Search UI Effects</h1>
-        <div class="codrops-header__side">
-            <nav class="codrops-demos">
-                <span>More demos: </span>
-                <a href="index.html">1</a>
-                <a class="current-demo" href="index2.html">2</a>
-                <a href="index3.html">3</a>
-                <a href="index4.html">4</a>
-                <a href="index5.html">5</a>
-                <a href="index6.html">6</a>
-                <a href="index7.html">7</a>
-                <a href="index8.html">8</a>
-                <a href="index9.html">9</a>
-                <a href="index10.html">10</a>
-                <a href="index11.html">11</a>
-            </nav>
+
+    </form>
+        </ul>
+    </div>
+
+    <!--info end-->
+    <div class="blank"></div>
+    <div class="blogs">
+        <ul class="bloglist" id="blog-list">
+
+        </ul>
+
+        <!--bloglist end-->
+        <aside>
+            <div class="tuijian" id="recommend-article">
+                <!--h2>推荐文章</h2>
+                <ol>
+                  <li><span><strong>1</strong></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
+                  <li><span><strong>2</strong></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
+                  <li><span><strong>3</strong></span><a href="/">女孩都有浪漫的小情怀――浪漫的求婚词</a></li>
+                  <li><span><strong>4</strong></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
+                  <li><span><strong>5</strong></span><a href="/">女生清新个人博客网站模板</a></li>
+                  <li><span><strong>6</strong></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
+                  <li><span><strong>7</strong></span><a href="/">Column 三栏布局 个人网站模板</a></li>
+                  <li><span><strong>8</strong></span><a href="/">时间煮雨-个人网站模板</a></li>
+                  <li><span><strong>9</strong></span><a href="/">花气袭人是酒香―个人网站模板</a></li>
+                </ol-->
+            </div>
+            <!--div class="toppic">
+              <h2>图文并茂</h2>
+              <ul>
+                <li><a href="/"><img src="images/k01.jpg">腐女不可怕，就怕腐女会画画！
+                  <p>伤不起</p>
+                  </a></li>
+                <li><a href="/"><img src="images/k02.jpg">问前任，你还爱我吗？无限戳中泪点~
+                  <p>感兴趣</p>
+                  </a></li>
+                <li><a href="/"><img src="images/k03.jpg">世上所谓幸福，就是一个笨蛋遇到一个傻瓜。
+                  <p>喜欢</p>
+                  </a></li>
+              </ul>
+            </div-->
+            <div class="clicks" id="hot-article">
+                <!--h2>热门点击</h2>
+                <ol>
+                  <li><span><a href="/">慢生活</a></span><a href="/">有一种思念，是淡淡的幸福,一个心情一行文字</a></li>
+                  <li><span><a href="/">爱情美文</a></span><a href="/">励志人生-要做一个潇洒的女人</a></li>
+                  <li><span><a href="/">慢生活</a></span><a href="/">女孩都有浪漫的小情怀――浪漫的求婚词</a></li>
+                  <li><span><a href="/">博客模板</a></span><a href="/">Green绿色小清新的夏天-个人博客模板</a></li>
+                  <li><span><a href="/">女生个人博客</a></span><a href="/">女生清新个人博客网站模板</a></li>
+                  <li><span><a href="/">Wedding</a></span><a href="/">Wedding-婚礼主题、情人节网站模板</a></li>
+                  <li><span><a href="/">三栏布局</a></span><a href="/">Column 三栏布局 个人网站模板</a></li>
+                  <li><span><a href="/">个人网站模板</a></span><a href="/">时间煮雨-个人网站模板</a></li>
+                  <li><span><a href="/">古典风格</a></span><a href="/">花气袭人是酒香―个人网站模板</a></li>
+                </ol-->
+            </div>
+            <div class="search">
+                <form class="searchform" method="get" action="#">
+                    <input type="text" name="s" value="Search" onfocus="this.value=''" onblur="this.value='Search'">
+                </form>
+            </div>
+            <div class="viny">
+                <dl>
+                    <dt class="art"><img src="images/artwork.png" alt="专辑"></dt>
+                    <dd class="icon-song"><span></span>信</dd>
+                    <dd class="icon-artist"><span></span>歌手：裂天</dd>
+                    <dd class="icon-album"><span></span>专辑：《热门华语》</dd>
+                    <dd class="icon-like"><span></span><a href="/">喜欢</a></dd>
+                    <dd class="music">
+                        <audio src="images/lietian-xin.mp3" controls></audio>
+                    </dd>
+                    <!--也可以添加loop属性 音频加载到末尾时，会重新播放-->
+                </dl>
+            </div>
+        </aside>
+
+        <ul class="bloglist">
+            <li>
+                <div class="arrow_box">
+                    <ul class="details" id="page-list">
+
+                    </ul>
+                </div>
+                <!--arrow_box end-->
+            </li>
+        </ul>
+
+    </div>
+    <!--blogs end-->
+</div>
+<!--mainbody end-->
+<footer>
+    <div class="footer-mid">
+        <div class="links">
+            <h2>友情链接</h2>
+            <ul>
+                <li><a href="http://www.deman.club/">张德满个人博客</a></li>
+                <li><a href="http://www.oschina.net/">开源中国</a></li>
+                <li><a href="https://www.csdn.net/">CSDN</a></li>
+                <li><a href="https://www.imooc.com/">慕课网</a></li>
+            </ul>
         </div>
-    </header>
-</main>
-<script src="/js/search/demo2.js"></script>
+        <div class="visitors" id="last-article">
+            <!--h2>最新发布</h2>
+            <dl>
+              <dt><img src="images/s8.jpg">
+              <dt>
+              <dd>DanceSmile
+                <time>49分钟前</time>
+              </dd>
+              <dd>在 <a href="http://www.yangqq.com/jstt/bj/2013-07-28/530.html" class="title">如果要学习web前端开发，需要学习什么？ </a>中评论：</dd>
+              <dd>文章非常详细，我很喜欢.前端的工程师很少，我记得几年前yahoo花高薪招聘前端也招不到</dd>
+            </dl>
+            <dl>
+              <dt><img src="images/s7.jpg">
+              <dt>
+              <dd>yisa
+                <time>2小时前</time>
+              </dd>
+              <dd>在 <a href="http://www.yangqq.com/news/s/2013-07-31/533.html" class="title">芭蕾女孩的心事儿</a>中评论：</dd>
+              <dd>我手机里面也有这样一个号码存在</dd>
+            </dl>
+            <dl>
+              <dt><img src="images/s6.jpg">
+              <dt>
+              <dd>小林博客
+                <time>8月7日</time>
+              </dd>
+              <dd>在 <a href="http://www.yangqq.com/jstt/bj/2013-06-18/285.html" class="title">如果个人博客网站再没有价值，你还会坚持吗？ </a>中评论：</dd>
+              <dd>博客色彩丰富，很是好看</dd>
+            </dl-->
+        </div>
+        <!--section class="flickr">
+          <h2>摄影作品</h2>
+          <ul>
+            <li><a href="/"><img src="images/01.jpg"></a></li>
+            <li><a href="/"><img src="images/02.jpg"></a></li>
+            <li><a href="/"><img src="images/03.jpg"></a></li>
+            <li><a href="/"><img src="images/04.jpg"></a></li>
+            <li><a href="/"><img src="images/05.jpg"></a></li>
+            <li><a href="/"><img src="images/06.jpg"></a></li>
+            <li><a href="/"><img src="images/07.jpg"></a></li>
+            <li><a href="/"><img src="images/08.jpg"></a></li>
+            <li><a href="/"><img src="images/09.jpg"></a></li>
+          </ul>
+        </section-->
+    </div>
+    <div class="footer-bottom">
+        <p>Copyright 2013 Design by <a href="http://www.yangqq.com">DanceSmile</a></p>
+    </div>
+</footer>
+<!-- jQuery仿腾讯回顶部和建议 代码开始 -->
+<div id="tbox"> <a id="togbook" href="/e/tool/gbook/?bid=1"></a> <a id="gotop" href="javascript:void(0)"></a> </div>
+<!-- 代码结束 -->
+<!--开发者信息js-->
+<script src="js/web-js/developer.js"></script>
+
+<!--推荐文章js-->
+<script src="js/web-js/recommend.js"></script>
+
+<!--热门点击js-->
+<script src="js/web-js/hotArticle.js"></script>
+
+<!--最新发布文章-->
+<script src="js/web-js/lastArticle.js"></script>
+
 </body>
 </html>
