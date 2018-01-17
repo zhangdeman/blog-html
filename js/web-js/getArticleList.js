@@ -21,7 +21,7 @@ var getArticleList = {
     getList : function (requestData) {
         $.ajax({
             type: 'GET',
-            url: 'http://www.deman.club:8080/article/getArticleList',
+            url: requestUrl+'/article/getArticleList',
             data: requestData,
             dataType: "json",
             success: function (data) {
