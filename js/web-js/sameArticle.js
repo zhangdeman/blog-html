@@ -23,9 +23,10 @@ var sameArticle = {
     
     getArticleHtml : function (data) {
         html = "<h2>相关文章</h2><ul>";
-        var len = data.length;
+        var list = data.article_list;
+        var len = list.length;
         for (var index = 0; index < len; index++) {
-            html += "<li><a href=\"/"+"\" title=\""+data[index].title+"\">"+data[index].title+"</a></li>\n";
+            html += "<li><a href=\"/"+"\" title=\""+list[index].title+"\">"+list[index].title+"</a></li>\n";
         }
         html += "</ul>";
         return html;
