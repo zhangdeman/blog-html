@@ -35,6 +35,8 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, succe
                 Curl.errorMsg = data.error_msg;
                 Curl.responseData = data.data;
                 if (Curl.errorCode == 0) {
+                    console.log("same_article");
+                    console.log(data);
                     //请求成功
                     Curl.successCallback(curl.responseData);
                 } else {
