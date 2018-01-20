@@ -8,8 +8,8 @@ var sameArticle = {
         var requestUri = "/article/getArticleList";
         var requestMethod = "GET";
         var callBackFunc = {
-            succCallBackFunc : sameArticle.setLikeArticle(),
-            failCallBackFunc : sameArticle.requestFail(),
+            succCallBackFunc : sameArticle.setLikeArticle,
+            failCallBackFunc : sameArticle.requestFail,
         };
         var curlInstance = new Curl(reqParams, requestUri, requestMethod, requestUrl, 'json', callBackFunc);
         curlInstance.sendCurlReq(callBackFunc);
