@@ -11,51 +11,46 @@
  *  errorCallBack 请求失败时的回调函数，如404 500等
  */
 
-function Curl() {
-    var reqParams = undefined;
-    var requestUri = undefined;
-    var requestMethod = undefined;
-    var requestHost = undefined;
-    var dataType = undefined;
-    var callBackFunc = {};
+function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, callBackFunc) {
+    this.reqParams = reqParams;
+    this.requestUri = requestUri;
+    this.requestHost = requestHost == undefined ? requestUrl : requestHost;
+    this.fullReqUrl = this.requestHost + this.requestUri;
+    this.requestMethod = requestMethod;
+    this.dataType = dataType == undefined ? "json" : dataType;
+    this.callBackFunc = callBackFunc;
+    this.errorCode = undefined;
+    this.erorMsg = '';
+}
 
-    this.init = function (reqParams, requestUri, requestMethod, requestHost, dataType, callBackFunc) {
-        this.reqParams = reqParams;
-        this.requestUri = requestUri;
-        this.requestHost = requestHost == undefined ? requestUrl : requestHost;
-        this.fullReqUrl = this.requestHost + this.requestUri;
-        this.requestMethod = requestMethod;
-        this.dataType = dataType == undefined ? "json" : dataType;
-        this.callBackFunc = callBackFunc;
-    };
-
+Curl.prototype = {
     /**
-     * 发送 curl 请求
+     * 发送 Curl 请求
      */
-    this.sendCurlReq = function () {
+    sendCurlReq : function () {
         $.ajax({
-            type: Curl.requestMethod,
-            url: Curl.fullReqUrl,
-            data: Curl.reqParams,
-            dataType: Curl.dataType,
+            type: this.requestMethod,
+            url: this.fullReqUrl,
+            data: this.reqParams,
+            dataType: this.dataType,
             success: function (data) {
-                console.log("curl_request");
+                console.log("this_request");
                 console.log(data);
-                Curl.errorCode = data.error_code;
-                Curl.errorMsg = data.error_msg;
-                Curl.responseData = data.data;
-                if (Curl.errorCode == 0) {
+                this.errorCode = data.error_code;
+                this.errorMsg = data.error_msg;
+                this.responseData = data.data;
+                if (this.errorCode == 0) {
                     //请求成功
-                    Curl.callBackFunc.succCallBackFunc(curl.responseData);
+                    this.callBackFunc.succCallBackFunc(this.responseData);
                 } else {
-                    console.log(Curl.callBackFunc);
+                    console.log(this.callBackFunc);
                     //请求成功，返回错误码
-                    Curl.callBackFunc.failCallBackFunc(data);
+                    this.callBackFunc.failCallBackFunc(data);
                 }
             },
             error : function () {
-                Curl.callbackfunc.errorCallbackFunc();
+                this.callbackfunc.errorCallbackFunc();
             }
         });
-    };
-}
+    },
+};
