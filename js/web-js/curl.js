@@ -42,7 +42,6 @@ Curl.prototype = {
                     //请求成功
                     callBackFunc.succCallBackFunc(this.responseData);
                 } else {
-                    console.log(this.callBackFunc);
                     //请求成功，返回错误码
                     callBackFunc.failCallBackFunc(data);
                 }

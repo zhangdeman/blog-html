@@ -21,9 +21,8 @@ var sameArticle = {
         $("#same-article").html(html);
     },
     
-    getArticleHtml : function () {
-        html = "<h2>相关文章</h2><ul>"
-        var data = arguments[0];
+    getArticleHtml : function (data) {
+        html = "<h2>相关文章</h2><ul>";
         if (data == undefined) {
             return html += "</ul>";
         }
