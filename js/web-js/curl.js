@@ -34,7 +34,6 @@ Curl.prototype = {
             data: this.reqParams,
             dataType: this.dataType,
             success: function (data) {
-                console.log("this_request");
                 console.log(data);
                 this.errorCode = data.error_code;
                 this.errorMsg = data.error_msg;

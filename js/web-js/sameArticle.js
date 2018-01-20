@@ -32,6 +32,7 @@ var sameArticle = {
             html += "<li><a href=\"/"+"\" title=\""+data[index].title+"\">"+data[index].title+"</a></li>\n";
         }
         html += "</ul>";
+        return html;
     },
 
     requestFail : function () {
