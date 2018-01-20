@@ -26,24 +26,24 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, succe
      */
     this.sendCurlReq = function () {
         $.ajax({
-            type: curl.requestMethod,
-            url: curl.fullReqUrl,
-            data: curl.reqParams,
-            dataType: curl.dataType,
+            type: Curl.requestMethod,
+            url: Curl.fullReqUrl,
+            data: Curl.reqParams,
+            dataType: Curl.dataType,
             success: function (data) {
-                curl.errorCode = data.error_code;
-                curl.errorMsg = data.error_msg;
-                curl.responseData = data.data;
+                Curl.errorCode = data.error_code;
+                Curl.errorMsg = data.error_msg;
+                Curl.responseData = data.data;
                 if (curl.errorCode == 0) {
                     //请求成功
-                    curl.successCallback(curl.responseData);
+                    Curl.successCallback(curl.responseData);
                 } else {
                     //请求成功，返回错误码
-                    curl.failCallBack();
+                    Curl.failCallBack();
                 }
             },
             error : function () {
-                curl.errorCallback();
+                Curl.errorCallback();
             }
         });
     };
