@@ -45,7 +45,7 @@ var getNavList = {
 
         if (listLen == 0){
             navHtml = "<ul>\n" +
-                "      <li><a href=\"#\" id=\"web-index\" onclick=''>网站首页</a></li>\n" +
+                "      <li><a href=\"http://www.deman.club\" id=\"web-index\" onclick=''>网站首页</a></li>\n" +
                 "      <li><a href=\"#\" target=\"_blank\" title=\"个人博客模板\">个人博客</a></li>\n" +
                 "      <li><a href=\"#\" target=\"_blank\" title=\"图书推荐\">图书推荐</a></li>\n" +
                 "      <li><a href=\"#\" target=\"_blank\" title=\"网站建设\">网站建设</a></li>\n" +
