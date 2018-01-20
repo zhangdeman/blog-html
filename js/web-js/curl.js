@@ -39,6 +39,7 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, callB
                     //请求成功
                     Curl.callBackFunc.succCallBackFunc(curl.responseData);
                 } else {
+                    console.log(this.callBackFunc);
                     //请求成功，返回错误码
                     Curl.callBackFunc.failCallBackFunc(data);
                 }

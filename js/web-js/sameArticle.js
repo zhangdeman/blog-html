@@ -36,6 +36,9 @@ var sameArticle = {
 
     requestFail : function () {
         var data = arguments[0];
+        if (data == undefined) {
+            console.log("request_error");
+        }
         console.log(data);
     }
 };
