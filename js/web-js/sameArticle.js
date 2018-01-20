@@ -8,13 +8,15 @@ var sameArticle = {
         var requestUri = "/article/getArticleList";
         var requestMethod = "GET";
         var callBackFunc = {
-            succCallBack : sameArticle.setLikeArticle(data = {}),
+            succCallBackFunc : sameArticle.setLikeArticle(),
+            failCallBackFunc : sameArticle.requestFail(),
         };
         var curlInstance = new Curl(reqParams, requestUri, requestMethod, requestUrl, 'json', callBackFunc);
         curlInstance.sendCurlReq();
     },
     
-    setLikeArticle : function (data) {
+    setLikeArticle : function () {
+        var data = arguments[0];
         var html = sameArticle.getArticleHtml(data);
         $("#same-article").html(html);
     },
@@ -31,6 +33,11 @@ var sameArticle = {
         }
         html += "</ul>";
     },
+
+    requestFail : function () {
+        var data = arguments[0];
+        console.log(data);
+    }
 };
 
 sameArticle.init();
