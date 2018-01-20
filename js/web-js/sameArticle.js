@@ -7,7 +7,7 @@ var sameArticle = {
         var reqParams = {};
         var requestUri = "/article/getArticleList";
         var requestMethod = "GET";
-        var curlInstance = new Curl(reqParams, requestUri, requestMethod, requestUrl, 'json', sameArticle.setLikeArticle(data));
+        var curlInstance = new Curl(reqParams, requestUri, requestMethod, requestUrl, 'json', sameArticle.setLikeArticle());
         curlInstance.sendCurlReq();
     },
     
