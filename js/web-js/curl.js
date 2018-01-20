@@ -31,12 +31,12 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, succe
             data: Curl.reqParams,
             dataType: Curl.dataType,
             success: function (data) {
+                console.log("curl_request");
+                console.log(data);
                 Curl.errorCode = data.error_code;
                 Curl.errorMsg = data.error_msg;
                 Curl.responseData = data.data;
                 if (Curl.errorCode == 0) {
-                    console.log("same_article");
-                    console.log(data);
                     //请求成功
                     Curl.successCallback(curl.responseData);
                 } else {
