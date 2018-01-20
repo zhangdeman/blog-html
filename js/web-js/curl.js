@@ -11,14 +11,23 @@
  *  errorCallBack 请求失败时的回调函数，如404 500等
  */
 
-function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, callBackFunc) {
-    this.reqParams = reqParams;
-    this.requestUri = requestUri;
-    this.requestHost = requestHost == undefined ? requestUrl : requestHost;
-    this.fullReqUrl = this.requestHost + this.requestUri;
-    this.requestMethod = requestMethod;
-    this.dataType = dataType == undefined ? "json" : dataType;
-    this.callBackFunc = callBackFunc;
+function Curl() {
+    var reqParams = undefined;
+    var requestUri = undefined;
+    var requestMethod = undefined;
+    var requestHost = undefined;
+    var dataType = undefined;
+    var callBackFunc = {};
+
+    this.init = function (reqParams, requestUri, requestMethod, requestHost, dataType, callBackFunc) {
+        this.reqParams = reqParams;
+        this.requestUri = requestUri;
+        this.requestHost = requestHost == undefined ? requestUrl : requestHost;
+        this.fullReqUrl = this.requestHost + this.requestUri;
+        this.requestMethod = requestMethod;
+        this.dataType = dataType == undefined ? "json" : dataType;
+        this.callBackFunc = callBackFunc;
+    };
 
     /**
      * 发送 curl 请求
@@ -39,7 +48,7 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, callB
                     //请求成功
                     Curl.callBackFunc.succCallBackFunc(curl.responseData);
                 } else {
-                    console.log(this.callBackFunc);
+                    console.log(Curl.callBackFunc);
                     //请求成功，返回错误码
                     Curl.callBackFunc.failCallBackFunc(data);
                 }

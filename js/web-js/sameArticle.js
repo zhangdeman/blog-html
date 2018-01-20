@@ -11,7 +11,8 @@ var sameArticle = {
             succCallBackFunc : sameArticle.setLikeArticle(),
             failCallBackFunc : sameArticle.requestFail(),
         };
-        var curlInstance = new Curl(reqParams, requestUri, requestMethod, requestUrl, 'json', callBackFunc);
+        var curlInstance = new Curl();
+        curlInstance.init(reqParams, requestUri, requestMethod, requestUrl, 'json', callBackFunc);
         curlInstance.sendCurlReq();
     },
     
