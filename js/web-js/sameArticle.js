@@ -12,7 +12,7 @@ var sameArticle = {
             failCallBackFunc : sameArticle.requestFail(),
         };
         var curlInstance = new Curl(reqParams, requestUri, requestMethod, requestUrl, 'json', callBackFunc);
-        curlInstance.sendCurlReq();
+        curlInstance.sendCurlReq(callBackFunc);
     },
     
     setLikeArticle : function () {

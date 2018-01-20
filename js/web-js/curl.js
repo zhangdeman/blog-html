@@ -27,7 +27,7 @@ Curl.prototype = {
     /**
      * 发送 Curl 请求
      */
-    sendCurlReq : function () {
+    sendCurlReq : function (callBackFunc) {
         $.ajax({
             type: this.requestMethod,
             url: this.fullReqUrl,
@@ -41,15 +41,15 @@ Curl.prototype = {
                 this.responseData = data.data;
                 if (this.errorCode == 0) {
                     //请求成功
-                    this.callBackFunc.succCallBackFunc(this.responseData);
+                    callBackFunc.succCallBackFunc(this.responseData);
                 } else {
                     console.log(this.callBackFunc);
                     //请求成功，返回错误码
-                    this.callBackFunc.failCallBackFunc(data);
+                    callBackFunc.failCallBackFunc(data);
                 }
             },
             error : function () {
-                this.callbackfunc.errorCallbackFunc();
+                callbackfunc.errorCallbackFunc();
             }
         });
     },
