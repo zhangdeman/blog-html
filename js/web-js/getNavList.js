@@ -32,7 +32,7 @@ var getNavList = {
     //设置导航栏
     setNav : function (navList) {
         var navHtml = "<ul id=\"nav-list\">\n" +
-            "      <li><a href=\"#\">网站首页</a></li>";
+            "      <li><a href=\"http://www.deman.club\">网站首页</a></li>";
 
         var listLen = navList.length;
         for (var index = 0; index < listLen; index++) {
