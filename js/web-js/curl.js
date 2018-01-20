@@ -5,21 +5,20 @@
  * @param requestMethod 请求方法
  * @param requestHost 请求主机
  * @param dataType 返回数据类型
- * @param successCallBack 请求成功时，回调函数
- * @param failCallBack 请求成功，但是返回错误码时的回调函数
- * @param errorCallBack 请求失败时的回调函数，如404 500等
+ * @param callBackFunc 各种回调处理
+ *  successCallBack 请求成功时，回调函数
+ *  failCallBack 请求成功，但是返回错误码时的回调函数
+ *  errorCallBack 请求失败时的回调函数，如404 500等
  */
 
-function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, successCallBack, failCallBack, errorCallBack) {
+function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, callBackFunc) {
     this.reqParams = reqParams;
     this.requestUri = requestUri;
     this.requestHost = requestHost == undefined ? requestUrl : requestHost;
     this.fullReqUrl = this.requestHost + this.requestUri;
     this.requestMethod = requestMethod;
     this.dataType = dataType == undefined ? "json" : dataType;
-    this.successCallback = successCallBack;
-    this.failCallBack = failCallBack;
-    this.errorCallback = errorCallBack;
+    this.callBackFunc = callBackFunc;
 
     /**
      * 发送 curl 请求
@@ -38,7 +37,7 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, succe
                 Curl.responseData = data.data;
                 if (Curl.errorCode == 0) {
                     //请求成功
-                    Curl.successCallback(curl.responseData);
+                    Curl.callbackfunc.succCallBack(curl.responseData);
                 } else {
                     //请求成功，返回错误码
                     Curl.failCallBack();
