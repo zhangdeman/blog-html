@@ -34,7 +34,7 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, succe
                 Curl.errorCode = data.error_code;
                 Curl.errorMsg = data.error_msg;
                 Curl.responseData = data.data;
-                if (curl.errorCode == 0) {
+                if (Curl.errorCode == 0) {
                     //请求成功
                     Curl.successCallback(curl.responseData);
                 } else {
