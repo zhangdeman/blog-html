@@ -37,10 +37,10 @@ function Curl(reqParams, requestUri, requestMethod, requestHost, dataType, callB
                 Curl.responseData = data.data;
                 if (Curl.errorCode == 0) {
                     //请求成功
-                    Curl.callbackfunc.succCallBackFunc(curl.responseData);
+                    Curl.callBackFunc.succCallBackFunc(curl.responseData);
                 } else {
                     //请求成功，返回错误码
-                    Curl.callbackfunc.failCallBackFunc(data);
+                    Curl.callBackFunc.failCallBackFunc(data);
                 }
             },
             error : function () {
