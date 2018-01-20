@@ -37,13 +37,12 @@ Curl.prototype = {
                 console.log(data);
                 this.errorCode = data.error_code;
                 this.errorMsg = data.error_msg;
-                this.responseData = data.data;
                 if (this.errorCode == 0) {
                     //请求成功
-                    callBackFunc.succCallBackFunc(this.responseData);
+                    callBackFunc.succCallBackFunc(data.data);
                 } else {
                     //请求成功，返回错误码
-                    callBackFunc.failCallBackFunc(data);
+                    callBackFunc.failCallBackFunc(data.data);
                 }
             },
             error : function () {

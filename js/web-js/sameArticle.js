@@ -23,9 +23,6 @@ var sameArticle = {
     
     getArticleHtml : function (data) {
         html = "<h2>相关文章</h2><ul>";
-        if (data == undefined) {
-            return html += "</ul>";
-        }
         var len = data.length;
         for (var index = 0; index < len; index++) {
             html += "<li><a href=\"/"+"\" title=\""+data[index].title+"\">"+data[index].title+"</a></li>\n";
