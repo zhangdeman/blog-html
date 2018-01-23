@@ -30,7 +30,7 @@ var lastArticle = {
             html += "<dl>\n" +
                 "        <dt><img src=\"images/s6.jpg\">\n" +
                 "        <dt>\n" +
-                "        <dd>"+data[index].title+"\n" +
+                "        <dd>"+data[index].show_admin_name+"\n" +
                 "          <time>"+data[index].has_publish_time+" 前</time>\n" +
                 "        </dd>\n" +
                 "        <dd>发布文章 <a href=\""+"http://www.deman.club/view.html#"+data[index].id+"\" class=\"title\">"+data[index].title+" </a></dd>\n" +
